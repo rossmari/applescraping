@@ -7,7 +7,6 @@ describe ImeiPageVisitor do
 
     before :all do
       @visitor = ImeiPageVisitor.new('013977000323877')
-      @visitor.get_coverage_page
     end
 
     it 'redirect session to information page' do
@@ -28,7 +27,6 @@ describe ImeiPageVisitor do
 
     before :all do
       @visitor = ImeiPageVisitor.new('invalid imei')
-      @visitor.get_coverage_page
     end
 
     it 'return error if imei invalid' do

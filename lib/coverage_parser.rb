@@ -1,4 +1,5 @@
 require 'nokogiri'
+require 'custom_exceptions'
 
 class CoverageParser
 
@@ -14,13 +15,13 @@ class CoverageParser
   def status
     find_by_phrase('h3', STATUS_PHRASE) == 'Active'
   rescue
-    raise StatusParsingError.new
+    raise CustomExceptions::StatusParsingError.new
   end
 
   def date
     Date.parse(parse_date)
   rescue
-    raise DateParsingError.new
+    raise CustomExceptions::DateParsingError.new
   end
 
   private

@@ -8,7 +8,6 @@ describe CoverageParser do
 
     before :all do
       visitor = ImeiPageVisitor.new('013977000323877')
-      visitor.get_coverage_page
       @parser = CoverageParser.new(visitor.content)
     end
 
@@ -34,7 +33,6 @@ describe CoverageParser do
 
     before :all do
       visitor = ImeiPageVisitor.new('013896000639712')
-      visitor.get_coverage_page
       @parser = CoverageParser.new(visitor.content)
     end
 
@@ -48,8 +46,8 @@ describe CoverageParser do
 
     describe '#date' do
 
-      it 'is nil' do
-        expect(@parser.date).to be_nil
+      it 'raise an exception' do
+        expect{@parser.date}.to raise_error(StandardError)
       end
 
     end
