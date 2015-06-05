@@ -1,0 +1,19 @@
+.col-sm-offset-1
+  %h1
+    Log
+  = link_to 'New check', new_check_result_path, class: 'btn btn-primary'
+  .col-sm-10
+    %table.table.table-bordered
+      %thead
+        %tr
+          %th ID
+          %th Imei
+          %th Status
+          %th Date
+      %tbody
+        - @check_results.each do |result|
+          %tr
+            %td= result.id
+            %td= result.imei
+            %td= result.status
+            %td= result.e_date

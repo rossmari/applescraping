@@ -1,0 +1,25 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: 5
+
+development:
+  <<: *default
+  username: rossmari
+  database: applescraping
+
+
+# Warning: The database defined as "test" will be erased and
+# re-generated from your development database when you run "rake".
+# Do not set this db to the same as development or production.
+test:
+  <<: *default
+  database: applescraping_test
+
+production:
+  <<: *default
+  database: applescraping_production
+  username: applescraping
+  password: <%= ENV['APPLESCRAPING_DATABASE_PASSWORD'] %>
